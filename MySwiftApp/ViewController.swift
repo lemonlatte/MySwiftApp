@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet var waterTextField : UITextField
+    @IBOutlet var ratioTextField : UITextField
+    @IBOutlet var coffeeTextField : UITextField
                             
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,20 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func calculateButtonPressed(sender : AnyObject) {
+        println("Calculate Button Has Pressed.")
+
+        var water:Float = (self.waterTextField.text as NSString).floatValue
+        var ratio:Float = (self.ratioTextField.text as NSString).floatValue
+        
+        var coffee:Float = water / ratio
+        
+        self.coffeeTextField.text = "\(coffee)"
+            
+        println("Water: \(water)")
+        println("Ratio: \(ratio)")
+        println("Coffee: \(coffee)")
+    }
 
 }
 
